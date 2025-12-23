@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Складове под наем – кв. Димитър Миленков</title>
+  <meta name="description" content="Складови помещения под наем в кв. Димитър Миленков, София – твърди стени, височина 6–8 м, голям плац с достъп за тирове и офиси.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #111;
+      background: #f5f5f5;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1.2rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    .hero {
+      background: radial-gradient(circle at top, #ffffff, #e3e3e3);
+      padding: 3rem 0 3.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 3vw + 1rem, 2.6rem);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .badge {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+    }
+    .btn-primary {
+      background: #111;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #111;
+    }
+    .btn-outline:hover {
+      background: #111;
+      color: #fff;
+    }
+    .hero-highlight {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 1rem;
+    }
+    .hero-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1.5rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+      border: 1px solid #e3e3e3;
+    }
+    .hero-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.8rem;
+      color: #666;
+    }
+    .hero-card ul {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .hero-card li + li {
+      margin-top: 0.4rem;
+      padding-top: 0.4rem;
+      border-top: 1px dashed #eee;
+    }
+    .hero-card strong {
+      font-weight: 600;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    section p {
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 1.1rem;
+      padding: 1.3rem 1.3rem 1.4rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+      border: 1px solid #e5e5e5;
+    }
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .card small {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .card dl {
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+    }
+    .card dt {
+      font-weight: 600;
+    }
+    .card dd {
+      margin-left: 0;
+      margin-bottom: 0.4rem;
+    }
+
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .benefit-bullet {
+      margin-top: 0.3rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #111;
+      flex-shrink: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    form {
+      background: #fff;
+      padding: 1.4rem;
+      border-radius: 1.1rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e5e5e5;
+      font-size: 0.9rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      margin-bottom: 0.7rem;
+      border-radius: 0.6rem;
+      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #111;
+    }
+
+    .contact-info {
+      font-size: 0.95rem;
+    }
+    .contact-info p + p { margin-top: 0.5rem; }
+    .contact-info strong { font-weight: 600; }
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.5rem 0;
+      font-size: 0.8rem;
+      color: #555;
+      background: #f0f0f0;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid, .contact-grid, .benefits-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header { position: static; }
+      nav ul { display: none; }
+      .hero { padding-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-row">
+      <div class="logo">WAREHOUSE • ДИМИТЪР МИЛЕНКОВ</div>
+      <nav>
+        <ul>
+          <li><a href="#about">За нас</a></li>
+          <li><a href="#warehouses">Складове</a></li>
+          <li><a href="#benefits">Предимства</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Складови помещения под наем в кв. „Димитър Миленков“, София</h1>
+          <p>
+            Три самостоятелни складови помещения с височина 6–8 м, твърди стени и 
+            голям плац с удобен достъп за тирове. Подходящи за логистика, дистрибуция, производство и съхранение.
+          </p>
+          <div class="hero-badges">
+            <span class="badge">Общо над 850 m² складови площи</span>
+            <span class="badge">Голям плац ~2 дка</span>
+            <span class="badge">Офиси към складовете</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Запитване за наем</a>
+            <a href="#warehouses" class="btn btn-outline">Виж складовете</a>
+          </div>
+          <p class="hero-highlight">
+            Локация: кв. „Димитър Миленков“, София – бърз достъп до магистрала „Тракия“ и Околовръстен път.
+          </p>
+        </div>
+        <aside class="hero-card">
+          <h2>Налични помещения</h2>
+          <ul>
+            <li><strong>Склад 1:</strong> 400 m² • височина 6–8 м</li>
+            <li><strong>Склад 2:</strong> 210 m² • височина 6–8 м</li>
+            <li><strong>Склад 3:</strong> 245 m² • височина 6–8 м</li>
+            <li><strong>Офис 1:</strong> 26 m²</li>
+            <li><strong>Офис 2:</strong> 50 m²</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>За имота</h2>
+          <p>
+            Базата разполага с три самостоятелни складови помещения с твърди стени, височина между 6 и 8 метра,
+            както и с голям открит плац, който позволява удобно маневриране и товаро-разтоварни дейности с камиони и тирове.
+          </p>
+        </div>
+        <p>
+          Помещенията са подходящи за:
+        </p>
+        <ul style="margin-top:0.5rem; margin-left:1.2rem; font-size:0.95rem;">
+          <li>логистични и дистрибуционни центрове;</li>
+          <li>склад за стоки и материали;</li>
+          <li>леко производство или сглобяване;</li>
+          <li>сервизна дейност и други.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="warehouses">
+      <div class="container">
+        <div class="section-header">
+          <h2>Складови помещения</h2>
+          <p>Всички складове са с удобен достъп, високи врати и възможност за гъвкави решения според бизнеса.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Склад 1 – 400 m²</h3>
+            <small>Височина 6–8 м • твърди стени</small>
+            <dl>
+              <dt>Подходящ за:</dt>
+              <dd>Логистика, палетизирани стоки, стелажни системи.</dd>
+              <dt>Особености:</dt>
+              <dd>Широк вход, достъп за камиони, близо до плаца.</dd>
+            </dl>
+          </article>
+
+          <article class="card">
+            <h3>Склад 2 – 210 m²</h3>
+            <small>Височина 6–8 м • твърди стени</small>
+            <dl>
+              <dt>Подходящ за:</dt>
+              <dd>По-малки складове, онлайн магазини, резервни части.</dd>
+              <dt>Особености:</dt>
+              <dd>Добър баланс между площ и разходи за наем.</dd>
+            </dl>
+          </article>
+
+          <article class="card">
+            <h3>Склад 3 – 245 m²</h3>
+            <small>Височина 6–8 м • твърди стени</small>
+            <dl>
+              <dt>Подходящ за:</dt>
+              <dd>Смесено съхранение, работилница + склад.</dd>
+              <dt>Особености:</dt>
+              <dd>Гъвкава конфигурация според нуждите.</dd>
+            </dl>
+          </article>
+        </div>
+
+        <div class="grid" style="margin-top:1.5rem;">
+          <article class="card">
+            <h3>Офис 1 – 26 m²</h3>
+            <small>Подходящ за 1–3 работни места</small>
+            <p style="margin-top:0.6rem; font-size:0.9rem;">
+              Компактен офис, подходящ за администрация, оператори и прием на клиенти.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Офис 2 – 50 m²</h3>
+            <small>Подходящ за 3–6 работни места</small>
+            <p style="margin-top:0.6rem; font-size:0.9rem;">
+              По-голям офис, с възможност за разделяне на зони – управленски и оперативен екип.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <h2>Предимства на базата</h2>
+          <p>Практично разположение и условия, съобразени с реалните нужди на бизнеса.</p>
+        </div>
+
+        <div class="benefits-list">
+          <div class="benefit">
+            <div class="benefit-bullet"></div>
+            <div>Голям плац (около 2 дка) – лесно маневриране и паркиране на тирове и бусове.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-bullet"></div>
+            <div>Твърди стени и височина 6–8 м – възможност за стелажи и високостелажно складиране.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-bullet"></div>
+            <div>Бърз достъп до ключови булеварди и изходи на София.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-bullet"></div>
+            <div>Възможност за дългосрочен договор и гъвкави условия според наемателя.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-bullet"></div>
+            <div>Офисни помещения към складовете – административният екип е близо до операциите.</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-bullet"></div>
+            <div>Възможност за индивидуално брандиране и реклама на наемателя на място.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Свържете се с нас</h2>
+          <p>Изпратете запитване за свободни площи, цена на наем и оглед.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form action="mailto:bushev@cleverpine.com" method="post" enctype="text/plain">
+            <!-- смени your-email@example.com с твоя реален имейл -->
+            <label for="name">Име и фирма</label>
+            <input type="text" id="name" name="Име" required />
+
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="Телефон" required />
+
+            <label for="email">Имейл</label>
+            <input type="email" id="email" name="Имейл" />
+
+            <label for="space">Търсена площ</label>
+            <input type="text" id="space" name="Търсена площ" placeholder="например 200–400 m²" />
+
+            <label for="message">Допълнителна информация</label>
+            <textarea id="message" name="Съобщение" placeholder="Кратко опишете вашия бизнес и нужди."></textarea>
+
+            <button class="btn btn-primary" type="submit">Изпрати запитване</button>
+          </form>
+
+          <div class="contact-info">
+            <p><strong>Локация:</strong><br>
+              кв. „Димитър Миленков“, София<br>
+              (точен адрес по договор)
+            </p>
+            <p><strong>Телефон:</strong><br>
+              +359 XX XXX XXXX
+            </p>
+            <p><strong>Имейл:</strong><br>
+              info@your-warehouse-site.bg
+            </p>
+            <p style="margin-top:0.8rem;">
+              Можем да организираме оглед в удобно за вас време и да обсъдим
+              най-подходящата конфигурация на склад и офис за вашия бизнес.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Складове под наем – кв. „Димитър Миленков“, София. Всички права запазени.
+    </div>
+  </footer>
+
+  <script>
+    // текуща година във футъра
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
